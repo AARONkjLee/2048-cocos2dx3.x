@@ -1,7 +1,9 @@
 #include "HelloWorldScene.h"  
-#include "CardSprite.h"  
+#include "CardSprite.h" 
+#include "gbkToUtf8.h"
 
 USING_NS_CC;
+
 
 Scene* HelloWorld::createScene()
 {
@@ -37,7 +39,7 @@ bool HelloWorld::init()
 	auto layerColorBG = cocos2d::LayerColor::create(cocos2d::Color4B(180, 170, 160, 255));
 	this->addChild(layerColorBG);
 	// 在上方加入游戏的分数  
-	auto labelTTFCardNumberName = LabelTTF::create("分数:", "HirakakuProN-W6", 80);
+	auto labelTTFCardNumberName = LabelTTF::create(gbkToUtf8("分数:"), "HirakakuProN-W6", 80);
 	labelTTFCardNumberName->setPosition(Point(visibleSize.width / 5, visibleSize.height - 100));
 	addChild(labelTTFCardNumberName);
 
